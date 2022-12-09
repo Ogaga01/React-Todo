@@ -3,6 +3,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { GrCheckbox } from 'react-icons/gr';
 import { GiCheckMark } from 'react-icons/gi';
 import { tasks } from './LocalStorage';
+import styles from './SASS/NewTask.module.scss';
 
 const NewTask = () => {
   const [checked, setChecked] = useState(false);
@@ -20,30 +21,30 @@ const NewTask = () => {
   };
 
   return (
-    <ul>
+    <ul className={styles.todo}>
       {tasks.map((task) => (!task.checked ? (
-        <li key={task.id} className="list-item">
-          <div className="state">
-            <GrCheckbox className="check" onClick={checkHandler} />
+        <li key={task.id} className={styles.listitem}>
+          <div className={styles.state}>
+            <GrCheckbox className={styles.check} onClick={checkHandler} />
           </div>
           <input
             type="text"
-            className="list-input"
+            className={styles.listinput}
             value={task.description}
           />
-          <FaTrashAlt className="trash" onClick={deleteHandler} />
+          <FaTrashAlt className={styles.trash} onClick={deleteHandler} />
         </li>
       ) : (
-        <li key={task.id} className="list-item">
-          <div className="state">
-            <GiCheckMark className="active" onClick={checkHandler} />
+        <li key={task.id} className={styles.listitem}>
+          <div className={styles.state}>
+            <GiCheckMark className={styles.active} onClick={checkHandler} />
           </div>
           <input
             type="text"
-            className="list-input line-through"
+            className={`${styles.listinput} ${styles.linethrough}`}
             value={task.description}
           />
-          <FaTrashAlt className="trash" onClick={deleteHandler} />
+          <FaTrashAlt className={styles.trash} onClick={deleteHandler} />
         </li>
       )))}
     </ul>
