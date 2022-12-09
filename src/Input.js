@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import styles from './SASS/Input.module.scss';
+import { setLocalStorage, tasks } from './LocalStorage';
+import Task from './Task';
 
 const Input = () => {
   const [todo, setTodo] = useState('');
 
   const todoInputHandler = (e) => {
-    setTodo(e.target.value);
+    const task = new Task(e.target.value);
+    tasks.push(task);
+    setLocalStorage(task);
   };
 
   const submitInputHandler = (e) => {
@@ -15,7 +19,14 @@ const Input = () => {
   };
 
   return (
-    <input className={styles.textInput} type="text" placeholder="Add to your list..." value={todo} onChange={todoInputHandler} onKeyDown={submitInputHandler} />
+    <input
+      className={styles.textInput}
+      type="text"
+      placeholder="Add to your list..."
+      value={todo}
+      onChange={todoInputHandler}
+      onKeyDown={submitInputHandler}
+    />
   );
 };
 
