@@ -7,7 +7,9 @@ const Input = () => {
   const [todo, setTodo] = useState('');
 
   const todoInputHandler = (e) => {
+    console.log(e.target.value); //eslint-disable-line
     const task = new Task(e.target.value);
+    setTodo(e.target.value);
     tasks.push(task);
     setLocalStorage(task);
   };
