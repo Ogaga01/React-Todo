@@ -1,17 +1,27 @@
+import { useState } from 'react';
 import Input from './Input';
 import styles from './SASS/App.module.scss';
-import { getLocalStorage } from './LocalStorage';
+import { getLocalStorage, setLocalStorage, tasks } from './LocalStorage';
 import Header from './Header';
 import NewTask from './NewTask';
+import Task from './Task';
 
 function App() {
+  const [task, setTask] = useState(tasks);
+
+  const addnewTodoHandler = (todo) => {
+    const item = new Task(todo);
+    setTask((previousState) => [item, ...previousState]);
+    setLocalStorage(task);
+  };
+
   getLocalStorage();
 
   return (
     <div className={styles.app}>
       <Header />
-      <Input />
-      <NewTask />
+      <Input onAddNewTodo={addnewTodoHandler} />
+      <NewTask tasks={task} />
     </div>
   );
 }

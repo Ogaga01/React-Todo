@@ -1,21 +1,19 @@
 import { useState } from 'react';
 import styles from './SASS/Input.module.scss';
-import { setLocalStorage, tasks } from './LocalStorage';
-import Task from './Task';
 
-const Input = () => {
+const Input = (props) => {
   const [todo, setTodo] = useState('');
+  // const [taskItems, setTaskItems] = useState(tasks)
 
   const todoInputHandler = (e) => {
     console.log(e.target.value); //eslint-disable-line
-    const task = new Task(e.target.value);
     setTodo(e.target.value);
-    tasks.push(task);
-    setLocalStorage(task);
   };
 
   const submitInputHandler = (e) => {
     if (e.key === 'Enter') {
+        console.log(e.target.value); //eslint-disable-line
+      props.onAddNewTodo(e.target.value);
       setTodo('');
     }
   };

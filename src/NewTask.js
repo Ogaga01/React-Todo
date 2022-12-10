@@ -1,28 +1,24 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { GrCheckbox } from 'react-icons/gr';
 import { GiCheckMark } from 'react-icons/gi';
-import { tasks } from './LocalStorage';
+// import { tasks } from './LocalStorage';
 import styles from './SASS/NewTask.module.scss';
 
-const NewTask = () => {
-  const [checked, setChecked] = useState(false);
+const NewTask = (props) => {
+//   const [checked, setChecked] = useState(false);
 
-  const checkHandler = (id) => {
-    tasks.forEach((task) => {
-      if (task.id === id) {
-        setChecked(!checked);
-      }
-    });
+  const checkHandler = () => {
+    console.log('clicked');
   };
 
   const deleteHandler = (id) => {
-    tasks.filter((task) => task.id !== id);
+    props.tasks.filter((task) => task.id !== id);
   };
 
   return (
     <ul className={styles.todo}>
-      {tasks.map((task) => (!task.checked ? (
+      {props.tasks.map((task) => (!task.checked ? (
         <li key={task.id} className={styles.listitem}>
           <div className={styles.state}>
             <GrCheckbox className={styles.check} onClick={checkHandler} />
@@ -31,6 +27,7 @@ const NewTask = () => {
             type="text"
             className={styles.listinput}
             value={task.description}
+                //   onChange={}
           />
           <FaTrashAlt className={styles.trash} onClick={deleteHandler} />
         </li>
