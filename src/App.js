@@ -9,13 +9,14 @@ import Task from './Task';
 function App() {
   const [task, setTask] = useState(tasks);
 
+  getLocalStorage();
+
   const addnewTodoHandler = (todo) => {
     const item = new Task(todo);
     setTask((previousState) => [item, ...previousState]);
-    setLocalStorage(task);
   };
-
-  getLocalStorage();
+  console.log(task)
+  setLocalStorage(task);
 
   return (
     <div className={styles.app}>

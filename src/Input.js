@@ -6,13 +6,11 @@ const Input = (props) => {
   // const [taskItems, setTaskItems] = useState(tasks)
 
   const todoInputHandler = (e) => {
-    console.log(e.target.value); //eslint-disable-line
     setTodo(e.target.value);
   };
 
   const submitInputHandler = (e) => {
     if (e.key === 'Enter') {
-        console.log(e.target.value); //eslint-disable-line
       props.onAddNewTodo(e.target.value);
       setTodo('');
     }
