@@ -15,7 +15,7 @@ function App() {
     const item = new Task(todo);
     setTask((previousState) => [item, ...previousState]);
   };
-  console.log(task)
+  console.log(task);
   setLocalStorage(task);
 
   return (
