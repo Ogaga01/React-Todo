@@ -1,0 +1,61 @@
+.todo {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: inherit;
+}
+
+.listitem {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 0;
+  background-color: inherit;
+}
+
+.listinput {
+  width: 85%;
+  outline: none;
+  height: 100%;
+  border: none;
+  color: black;
+  padding-left: 3%;
+}
+
+.check {
+  color: #a5a594;
+}
+
+.trash {
+  color: #a5a594;
+  margin-right: 5%;
+}
+
+.submit {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #e9ecef;
+  box-sizing: border-box;
+  outline: none;
+  color: #a5a594;
+  font-size: large;
+}
+
+.state {
+  margin-left: 5%;
+}
+
+.span {
+  display: none;
+}
+
+.active {
+  display: block;
+  cursor: pointer;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
