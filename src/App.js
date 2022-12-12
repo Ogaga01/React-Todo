@@ -5,6 +5,7 @@ import { getLocalStorage, setLocalStorage, tasks } from './LocalStorage';
 import Header from './Header';
 import NewTask from './NewTask';
 import Task from './Task';
+import Button from './Button';
 
 function App() {
   const [task, setTask] = useState(tasks);
@@ -23,6 +24,7 @@ function App() {
       <Header />
       <Input onAddNewTodo={addnewTodoHandler} />
       <NewTask tasks={task} />
+      <Button/>
     </div>
   );
 }
